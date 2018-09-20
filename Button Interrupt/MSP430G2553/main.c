@@ -12,7 +12,6 @@ void main(void)
     P2DIR = 0xff;
     P1OUT = 0x00;
     P2OUT = 0x00;
-    P1OUT = 0x00;
 	WDTCTL = WDTPW | WDTHOLD;	// stop watchdog timer
     P1IE |= BIT3; // P1.3 interrupt enabled
     P1IFG &= ~BIT3; // P1.3 IFG cleared

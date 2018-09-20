@@ -4,7 +4,7 @@
 /**
  * main.c
  */
-int delayval = 0;counter=0;
+volatile int delayval = 0;counter=0;
 
 void main(void)
 {
@@ -32,7 +32,7 @@ __interrupt void Port_1(void){
         P1IFG &= ~BIT3;
         delayval=0;
         counter=0;
-        P1OUT |= BIT3;
+        P1OUT |= BIT0;
 
         while(!(P1IN & BIT3)){
             delayval++;

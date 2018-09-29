@@ -1,12 +1,10 @@
-# Button Based Delay
-Now that you have begun to familiarize yourself with the TIMER modules, why don't we make an interesting change to our code from the last lab.
+# Button Blink
+This is a relatively straight forward program that simply toggles two on-board LEDs. It was built in CCS version 8.1.0.00011, and the code was compiled using GCC version 7.3.1.24 on Linux
 
-## Task
-Setup your microcontroller to initially blink and LED at a rate of 10Hz upon restarting or powering up. Then utilizing one of the buttons on board, a user should be able to set the delay or blinking rate of the LED by holding down a button. The duration in which the button is depressed should then become the new rate at which the LED blinks. As previously stated, you most likely will want to take advantage of the fact that TIMER modules exist and see if you can let them do a bulk of the work for you.
+## MSP430G2553
+For this board, the code sets all GPIO's to outputs to 0, and toggles waits for a button input on pin P1.3. Once the button is pressed, the LED is turned on, and a counter begins incrementing. When the button is released, the counter is stopped. A new counter increments. When the new counter equals the old counter value, the LED is toggled. This provides a 50% duty cycle square wave with a period very close to what was provided by the button (in this case, within 10000 clock cycles). 
 
-### Extra Work
-## Reset Button
-What is a piece of electronics without a reset button? Instead of relying on resetting your processor using the built in reset circuitry, why not instead use another button to reset the rate back to 10Hz.
-
-## Button Based Hertz
-Most likely using two buttons, what if instead of making a delay loop based on the time, the user could instead enter a mode where the number of times they pressed the button would become the number in Hz of the blinking rate? How do you think you would implement that with just one button?
+In layman's terms, light blinks and you say how fast. 
+## MSP430F5529
+For this board, the code sets all GPIO's to outputs to 0, and toggles waits for a button input on pin P1.1.
+This is done exactly like the program on the MSP430G2553 board, except it toggles an LED on P1.0.

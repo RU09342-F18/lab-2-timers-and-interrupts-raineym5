@@ -28,7 +28,7 @@ int main(void)
     counter=0;
 
 
-    TB0CTL = (TBSSEL1)|(MC0);
+    TB0CTL = (TBSSEL0)|(MC0);
 
     while(1){
         __enable_interrupt();
@@ -43,9 +43,9 @@ __interrupt void Timer_B(void){
         TB0CCTL0 &= ~CCIFG;
         TB0CTL &= ~TBIFG;
         counter++;
-        if(counter%3 == 0)
+        if(counter%2 == 0)
             P1OUT ^= 0x01;
-        if(counter%5 == 0)
+        if(counter%4 == 0)
             P4OUT ^= 0x80;
         if(counter == 15)
             counter = 0;

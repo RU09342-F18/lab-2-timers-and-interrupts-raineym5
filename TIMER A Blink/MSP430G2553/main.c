@@ -9,15 +9,15 @@ int main(void)
 {
     WDTCTL = WDTPW | WDTHOLD;   // stop watchdog timer
     P1DIR = 0xff;
-    P2DIR = 0xff;
+    P2DIR = 0xff;				//set all pins as outputs and at a defined logic level for power consumption reasons.
     P1OUT = 0x00;
     P2OUT = 0x00;
     CCTL0 = CCIE;               // CCR0 interrupt enabled
-    CCR0 = 65535;
+    CCR0 = 65535;				//set falue for CCR0 interrupt to fire
     counter=0;
 
 
-    TA0CTL = (TASSEL1)|(MC0);
+    TA0CTL = (TASSEL0)|(MC0);	//set timer A control bits - source select and mode control
 
     while(1){
         __enable_interrupt();

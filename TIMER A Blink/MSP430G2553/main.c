@@ -1,4 +1,4 @@
-#include <msp430.h> 
+#include <msp430.h>
 
 
 /**
@@ -13,11 +13,10 @@ int main(void)
     P1OUT = 0x00;
     P2OUT = 0x00;
     CCTL0 = CCIE;               // CCR0 interrupt enabled
-    CCR0 = 65535;				//set falue for CCR0 interrupt to fire
+    CCR0 = 65535;				//set value for CCR0 interrupt to fire
     counter=0;
 
-
-    TA0CTL = (TASSEL0)|(MC0);	//set timer A control bits - source select and mode control
+    TA0CTL = (TASSEL1)|(MC0);	//set timer A control bits - source select and mode control
 
     while(1){
         __enable_interrupt();

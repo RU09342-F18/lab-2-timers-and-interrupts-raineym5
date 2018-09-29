@@ -4,7 +4,7 @@
 /**
  * main.c
  */
-unsigned volatile int delayval = 50;counter=0;
+unsigned volatile int delayval = 7;counter=0;//10 Hz
 
 #pragma vector=PORT1_VECTOR
 __interrupt void Port_1(void){
